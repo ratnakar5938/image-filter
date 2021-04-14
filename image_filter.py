@@ -12,63 +12,64 @@ def red(r,g,b):
     new_r = r
     new_g = 0
     new_b = 0
-    return (new_r, new_g, new_b)
+    return new_r, new_g, new_b
 
 def inverse_purple(r, g, b):
     new_r = g
     new_g = b
     new_b = r
-    return (new_r, new_g, new_b)
+    return new_r, new_g, new_b
 
 def inverse_green(r, g, b):
     new_r = b
     new_g = r
     new_b = g
-    return (new_r, new_g, new_b)
+    return new_r, new_g, new_b
 
 def blue(r, g, b):
     new_r = 0
     new_g = 0
     new_b = b
-    return (new_r, new_g, new_b)
+    return new_r, new_g, new_b
 
 def green(r, g, b):
     new_r = 0
     new_g = g
     new_b = 0
-    return (new_r, new_g, new_b)
+    return new_r, new_g, new_b
 
 def sky_blue(r, g, b):
     new_r = b
     new_g = g
     new_b = r
-    return (new_r, new_g, new_b)
+    return new_r, new_g, new_b
 
 def yellow_green(r, g, b):
     new_r = g
     new_g = r
     new_b = b
-    return (new_r, new_g, new_b)
+    return new_r, new_g, new_b
 
 def black_white(r, g, b):
     avg = int((r+g+b)/3)
     new_r = avg
     new_g = avg
     new_b = avg
-    return (new_r, new_g, new_b)
+    return new_r, new_g, new_b
 
 def sepia(r, g, b):
     new_r = int(r * 0.393 + g * 0.769 + b * 0.189)
     new_g = int(r * 0.349 + g * 0.686 + b * 0.168)
     new_b = int(r * 0.272 + g * 0.534 + b * 0.131)
-    return (new_r, new_g, new_b)
+    return new_r, new_g, new_b
 
 def vignette(r, g, b):
     new_r = r//2
     new_g = g//2
     new_b = b//2
-    return (new_r, new_g, new_b)
-while(True):
+    return new_r, new_g, new_b
+
+while True:
     choice = '''
     Choice of filter:
         1. red
