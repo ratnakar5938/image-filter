@@ -1,6 +1,8 @@
 from PIL import Image
+from tkinter.filedialog import *
 
-path = input("Enter thw path to the image: ")
+# path = input("Enter thw path to the image: ")
+path = askopenfilename()
 img = Image.open(path).convert("RGB")
 
 width, height = img.size
@@ -8,11 +10,13 @@ width, height = img.size
 pixels = img.load()
 # print(pixels[1, 2])  # rgb of the given pixel
 
-def red(r,g,b):
+
+def red(r, g, b):
     new_r = r
     new_g = 0
     new_b = 0
     return new_r, new_g, new_b
+
 
 def inverse_purple(r, g, b):
     new_r = g
@@ -20,11 +24,13 @@ def inverse_purple(r, g, b):
     new_b = r
     return new_r, new_g, new_b
 
+
 def inverse_green(r, g, b):
     new_r = b
     new_g = r
     new_b = g
     return new_r, new_g, new_b
+
 
 def blue(r, g, b):
     new_r = 0
@@ -32,11 +38,13 @@ def blue(r, g, b):
     new_b = b
     return new_r, new_g, new_b
 
+
 def green(r, g, b):
     new_r = 0
     new_g = g
     new_b = 0
     return new_r, new_g, new_b
+
 
 def sky_blue(r, g, b):
     new_r = b
@@ -44,18 +52,21 @@ def sky_blue(r, g, b):
     new_b = r
     return new_r, new_g, new_b
 
+
 def yellow_green(r, g, b):
     new_r = g
     new_g = r
     new_b = b
     return new_r, new_g, new_b
 
+
 def black_white(r, g, b):
-    avg = int((r+g+b)/3)
+    avg = int((r + g + b) / 3)
     new_r = avg
     new_g = avg
     new_b = avg
     return new_r, new_g, new_b
+
 
 def sepia(r, g, b):
     new_r = int(r * 0.393 + g * 0.769 + b * 0.189)
@@ -63,14 +74,16 @@ def sepia(r, g, b):
     new_b = int(r * 0.272 + g * 0.534 + b * 0.131)
     return new_r, new_g, new_b
 
+
 def vignette(r, g, b):
-    new_r = r//2
-    new_g = g//2
-    new_b = b//2
+    new_r = r // 2
+    new_g = g // 2
+    new_b = b // 2
     return new_r, new_g, new_b
 
+
 while True:
-    choice = '''
+    choice = """
     Choice of filter:
         1. red
         2. blue
@@ -82,7 +95,7 @@ while True:
         8. sky blue
         9. yellow green
         10. vignette
-    '''
+    """
 
     print(choice)
     inp = int(input("Enter your choice: "))
@@ -112,16 +125,16 @@ while True:
                 getVal = vignette(r, g, b)
             else:
                 getVal = (r, g, b)
-            pixels[px,py] = getVal
+            pixels[px, py] = getVal
 
     img.show()
 
     # saving the image
     opt = input("Enter s to save else enter anything else: ")
-    if opt == 's':
+    if opt == "s":
         img.save("new_pic.jpg")
 
     # exiting the loop
     exit_code = input("Enter q to quit else press any other key: ")
-    if exit_code == 'q':
+    if exit_code == "q":
         break
